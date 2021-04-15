@@ -33,7 +33,8 @@
     "tournament",
     "tournaments",
     "competition",
-    "tennis"
+    "tennis",
+    "node-red"
   ],
   "author": "Charles Allen",
   "private": false,
@@ -85,5 +86,10 @@
     "tsdx": "0.14.1",
     "tslib": "2.2.0",
     "typescript": "4.2.4"
+  },
+  "node-red": {
+    "nodes": {
+      "courthive-mocks-engine-node": "dist/index.js"
+    }
   }
 }

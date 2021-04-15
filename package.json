@@ -1,0 +1,26 @@
+{
+  "name": "node-red-mocks-engine",
+  "version": "0.0.1",
+  "description": "node-red node wrapping Competition Factory mocksEngine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CourtHive/node-red-mocks-engine.git"
+  },
+  "keywords": [
+    "tournament",
+    "TODS"
+  ],
+  "author": "Charles Allen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CourtHive/node-red-mocks-engine/issues"
+  },
+  "homepage": "https://github.com/CourtHive/node-red-mocks-engine#readme",
+  "dependencies": {
+    "tods-competition-factory": "^0.5.60"
+  }
+}

@@ -10,8 +10,6 @@
     "prepare": "tsdx build",
     "html": "cp -r ./src/public/ ./dist/",
     "build": "tsdx build && yarn html",
-    "postinstall": "husky install",
-    "postpublish": "pinst --enable",
     "doc:publish": "cd documentation && GIT_USER=CourtHive USE_SSH=true yarn deploy"
   },
   "main": "dist/index.js",
@@ -78,7 +76,6 @@
     "eslint-plugin-jest": "24.3.5",
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-react": "7.23.2",
-    "husky": "6.0.0",
     "np": "7.4.0",
     "pinst": "2.1.6",
     "prettier": "2.2.1",

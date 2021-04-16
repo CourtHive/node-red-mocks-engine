@@ -86,9 +86,7 @@
   },
   "node-red": {
     "nodes": {
-      "mocks-engine": "dist/index.js",
-      "tournament-engine": "dist/index.js",
-      "mock-tournament-attributes": "dist/index.js"
+      "competition-factory": "dist/index.js"
     }
   }
 }

@@ -1,0 +1,188 @@
+<script type="text/javascript">
+  RED.nodes.registerType('tournament-engine', {
+    category: 'factory',
+    color: '#DD99FC',
+    defaults: {},
+    inputs: 1,
+    outputs: 1,
+    icon: 'function.svg',
+    label: function () {
+      return 'Tournament Engine';
+    },
+  });
+</script>
+
+<script type="text/html" data-help-name="tournament-engine">
+  <p>Tournament Engine</p>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('mocks-engine', {
+    category: 'factory',
+    color: '#DD99FC',
+    defaults: {},
+    inputs: 1,
+    outputs: 1,
+    icon: 'function.svg',
+    label: function () {
+      return 'Mocks Engine';
+    },
+  });
+</script>
+
+<script type="text/html" data-help-name="mocks-engine">
+  <p>Mocks Engine</p>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('mock-tournament-attributes', {
+    category: 'factory',
+    color: '#a6bbcf',
+    defaults: {
+      startDate: { value: '2020-01-01' },
+      endDate: { value: '2020-02-01' },
+      eventType: { value: 'SINGLES' },
+      drawType: { value: 'SINGLE_ELIMINATION' },
+      drawSize: { value: 32, validate: RED.validators.number() },
+      groupSize: { value: '' },
+    },
+    inputs: 0,
+    outputs: 1,
+    icon: 'inject.svg',
+    label: function () {
+      return 'Tournament Attributes';
+    },
+    button: {
+      enabled: function () {
+        return !this.changed;
+      },
+      onclick: function () {
+        if (this.changed) {
+          return RED.notify(
+            RED._('notification.warning', {
+              message: RED._('notification.warnings.undeployedChanges'),
+            }),
+            'warning'
+          );
+        }
+
+        var label = this._def.label.call(this);
+        if (label.length > 30) {
+          label = label.substring(0, 50) + '...';
+        }
+        label = label
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+        var node = this;
+        $.ajax({
+          url: 'inject/' + this.id,
+          type: 'POST',
+          error: function (jqXHR, textStatus, errorThrown) {
+            if (jqXHR.status == 404) {
+              RED.notify(
+                node._('common.notification.error', {
+                  message: node._('common.notification.errors.not-deployed'),
+                }),
+                'error'
+              );
+            } else if (jqXHR.status == 500) {
+              RED.notify(
+                node._('common.notification.error', {
+                  message: node._('inject.errors.failed'),
+                }),
+                'error'
+              );
+            } else if (jqXHR.status == 0) {
+              RED.notify(
+                node._('common.notification.error', {
+                  message: node._('common.notification.errors.no-response'),
+                }),
+                'error'
+              );
+            } else {
+              RED.notify(
+                node._('common.notification.error', {
+                  message: node._('common.notification.errors.unexpected', {
+                    status: jqXHR.status,
+                    message: textStatus,
+                  }),
+                }),
+                'error'
+              );
+            }
+          },
+        });
+      },
+    },
+  });
+</script>
+
+<script type="text/html" data-template-name="mock-tournament-attributes">
+  <div class="form-row">
+    <label for="node-input-startDate"
+      ><i class="fa fa-tag"></i> Start Date</label
+    >
+    <input type="text" id="node-input-startDate" placeholder="Start Date" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-endDate"><i class="fa fa-tag"></i> End Date</label>
+    <input type="text" id="node-input-endDate" placeholder="End Date" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-eventType"
+      ><i class="fa fa-tag"></i> Event Type</label
+    >
+    <select id="node-input-eventType">
+      <option value="SINGLES">Singles</option>
+      <option value="DOUBLES">Doubles</option>
+      <option value="TEAM">Team</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <label for="node-input-drawType"><i class="fa fa-tag"></i>Draw Type</label>
+    <select id="node-input-drawType">
+      <option value="COMPASS">Compass</option>
+      <option value="CURTIS_CONSOLATION">Curtis Consolation</option>
+      <option value="SINGLE_ELIMINATION">Single Elimination</option>
+      <option value="ROUND_ROBIN">Round Robin</option>
+      <option value="ROUND_ROBIN_WITH_PLAYOFF">Round Robin w/ Playoff</option>
+      <option value="FIRST_ROUND_LOSER_CONSOLATION">
+        First Round Loser Consolation
+      </option>
+      <option value="FIRST_MATCH_LOSER_CONSOLATION">
+        First Match Loser Consolation
+      </option>
+      <option value="MODIFIED_FEED_IN_CHAMPIONSHIP">
+        Modified Feed-In Championship
+      </option>
+      <option value="FEED_IN_CHAMPIONSHIP_TO_QF">
+        Feed-In Championship to QF
+      </option>
+      <option value="FEED_IN_CHAMPIONSHIP_TO_SF">
+        Feed-In Championship to SF
+      </option>
+      <option value="FEED_IN_CHAMPIONSHIP_TO_R16">
+        Feed-In Championship to R16
+      </option>
+    </select>
+  </div>
+  <div class="form-row">
+    <label for="node-input-drawSize"><i class="fa fa-tag"></i> Draw Size</label>
+    <input type="text" id="node-input-drawSize" placeholder="Draw Size" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-groupSize"
+      ><i class="fa fa-tag"></i> Group Size</label
+    >
+    <input
+      type="text"
+      id="node-input-groupSize"
+      placeholder="Round Robin Group Size"
+    />
+  </div>
+</script>
+
+<script type="text/html" data-help-name="mock-tournament-attributes">
+  <p>TODS Tournament Profile</p>
+</script>

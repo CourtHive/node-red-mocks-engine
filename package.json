@@ -19,7 +19,7 @@
     "dist"
   ],
   "np": {
-    "contents": "dist"
+    "contents": "."
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

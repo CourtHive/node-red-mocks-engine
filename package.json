@@ -58,6 +58,7 @@
     "trailingComma": "es5"
   },
   "dependencies": {
+    "node-red-competition-factory": "^0.0.7",
     "tods-competition-factory": "0.5.61"
   },
   "devDependencies": {

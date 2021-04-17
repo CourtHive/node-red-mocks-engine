@@ -9,21 +9,19 @@ import { messageHandler } from './messageHandler';
 module.exports = function (RED) {
   function MocksEngine(props) {
     RED.nodes.createNode(this, props);
-    const node = this;
-    node.on('input', function (msg) {
+    this.on('input', function (msg) {
       msg.payload = messageHandler({
         engine: MOCKS_ENGINE,
         payload: msg.payload,
       });
-      node.send(msg);
+      this.send(msg);
     });
   }
   RED.nodes.registerType('mocks-engine', MocksEngine);
 
   function TournamentEngine(props) {
     RED.nodes.createNode(this, props);
-    const node = this;
-    node.on('input', function (msg) {
+    this.on('input', function (msg) {
       msg.payload = messageHandler({
         engine: TOURNAMENT_ENGINE,
         payload: {
@@ -31,15 +29,14 @@ module.exports = function (RED) {
           params: msg.payload,
         },
       });
-      node.send(msg);
+      this.send(msg);
     });
   }
   RED.nodes.registerType('tournament-engine', TournamentEngine);
 
   function TournamentProfile(props) {
     RED.nodes.createNode(this, props);
-    const node = this;
-    node.on('input', function (msg) {
+    this.on('input', function (msg) {
       msg.payload = {
         method: GENERATE_TOURNAMENT_RECORD,
         params: {
@@ -51,7 +48,7 @@ module.exports = function (RED) {
           groupSize: parseInt(props.groupSize || 0),
         },
       };
-      node.send(msg);
+      this.send(msg);
     });
   }
   RED.nodes.registerType('mock-tournament-attributes', TournamentProfile);

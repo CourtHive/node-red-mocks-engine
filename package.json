@@ -7,9 +7,9 @@
     "start": "tsdx watch",
     "test": "tsdx test",
     "lint": "tsdx eslint src",
-    "html": "cp -r ./src/public/ ./dist/",
-    "build": "tsdx build && yarn html",
-    "prepare": "tsdx build && yarn html",
+    "public": "cp -r ./src/public/ ./dist/",
+    "build": "tsdx build && yarn public",
+    "prepare": "tsdx build && yarn public",
     "doc:publish": "cd documentation && GIT_USER=CourtHive USE_SSH=true yarn deploy"
   },
   "main": "dist/index.js",

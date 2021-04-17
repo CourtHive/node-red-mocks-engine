@@ -6,8 +6,6 @@ dist
 *.un~
 .*.un~
 *.code-workspace
-*.VSCodeCounter
 .nvim*
 documentation/.docusaurus
 documentation/build
-.DS_Store

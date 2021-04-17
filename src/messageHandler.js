@@ -1,10 +1,12 @@
+import { generateTournamentRecord } from './generateTournamentRecord';
+import { invokeTournamentEngine } from './invokeTournamentEngine';
+
 import {
   GENERATE_TOURNAMENT_RECORD,
   MOCKS_ENGINE,
   TOURNAMENT_ENGINE,
   INVOKE_TOURNAMENT_ENGINE,
 } from './constants';
-import { generateTournamentRecord } from './generateTournamentRecord';
 
 export function messageHandler({ engine, payload }) {
   const { method, params } = payload;

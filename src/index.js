@@ -1,5 +1,6 @@
 import {
   GENERATE_TOURNAMENT_RECORD,
+  INVOKE_TOURNAMENT_ENGINE,
   MOCKS_ENGINE,
   TOURNAMENT_ENGINE,
 } from './constants';
@@ -25,7 +26,10 @@ module.exports = function (RED) {
     node.on('input', function (msg) {
       msg.payload = messageHandler({
         engine: TOURNAMENT_ENGINE,
-        payload: msg.payload,
+        payload: {
+          method: INVOKE_TOURNAMENT_ENGINE,
+          params: msg.payload,
+        },
       });
       node.send(msg);
     });

@@ -59,8 +59,6 @@
     "trailingComma": "es5"
   },
   "dependencies": {
-    "jest": "^26.6.3",
-    "node-red-competition-factory": "^0.0.7",
     "tods-competition-factory": "0.5.61"
   },
   "devDependencies": {
@@ -78,6 +76,7 @@
     "eslint-config-prettier": "8.2.0",
     "eslint-plugin-jest": "24.3.5",
     "eslint-plugin-prettier": "3.4.0",
+    "jest": "^26.6.3",
     "np": "7.4.0",
     "pinst": "2.1.6",
     "prettier": "2.2.1",

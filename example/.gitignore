@@ -9,5 +9,5 @@ dist
 .nvim*
 documentation/.docusaurus
 documentation/build
-.flows
-.config
+.flows*
+.config*

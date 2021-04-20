@@ -8,7 +8,7 @@ module.exports = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'CourtHive',
-  projectName: 'tods-tournament-pdfs',
+  projectName: 'node-red-competition-factory',
   themeConfig: {
     navbar: {
       title: 'Factory Nodes',

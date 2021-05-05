@@ -59,7 +59,7 @@
     "trailingComma": "es5"
   },
   "dependencies": {
-    "tods-competition-factory": "0.5.61"
+    "tods-competition-factory": "0.5.86"
   },
   "devDependencies": {
     "@babel/core": "7.13.15",

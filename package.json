@@ -1,6 +1,6 @@
 {
   "name": "node-red-competition-factory",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "node-red node wrapping Competition Factory mocksEngine",
   "scripts": {
     "release": "np",

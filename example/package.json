@@ -11,6 +11,6 @@
   "license": "MIT",
   "dependencies": {
     "node-red": "^2.0.0",
-    "node-red-competition-factory": "^0.0.17"
+    "node-red-competition-factory": "^0.1.0"
   }
 }

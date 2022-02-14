@@ -1,6 +1,6 @@
 {
   "name": "node-red-competition-factory",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "node-red node wrapping Competition Factory mocksEngine",
   "scripts": {
     "release": "np",
@@ -69,8 +69,8 @@
     "@babel/preset-typescript": "7.16.0",
     "@types/jest": "27.0.3",
     "@types/node": "16.11.10",
-    "@typescript-eslint/eslint-plugin": "5.3.1",
-    "@typescript-eslint/parser": "5.3.1",
+    "@typescript-eslint/eslint-plugin": "5.4.0",
+    "@typescript-eslint/parser": "5.4.0",
     "babel-jest": "27.3.1",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
@@ -80,7 +80,7 @@
     "jest-environment-node": "27.3.1",
     "np": "7.6.0",
     "pinst": "2.1.6",
-    "prettier": "2.5.0",
+    "prettier": "2.5.1",
     "prettier-eslint": "13.0.0",
     "tsdx": "0.14.1",
     "tslib": "2.3.1",

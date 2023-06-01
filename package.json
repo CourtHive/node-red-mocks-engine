@@ -80,7 +80,7 @@
     "jest-environment-node": "27.5.1",
     "np": "7.6.2",
     "pinst": "3.0.0",
-    "prettier": "2.5.1",
+    "prettier": "2.8.8",
     "prettier-eslint": "13.0.0",
     "tsdx": "0.14.1",
     "tslib": "2.3.1",
